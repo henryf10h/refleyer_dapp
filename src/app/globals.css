@@ -25,3 +25,25 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@layer components {
+  .navbar-glow {
+    @apply shadow-lg; /* Tailwind's shadow for basic structure */
+    box-shadow: 0 0 10px #007bff, 0 0 20px #007bff, 0 0 40px #007bff; /* Custom neon glow */
+  }
+}
+
+@layer components {
+  .bg-gradient-to-r {
+    background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  }
+  
+  .from-gold {
+    --tw-gradient-from: #FFD700; /* Adjust this color to match your desired shade of gold */
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255,215,0,0));
+  }
+
+  .to-orange {
+    --tw-gradient-to: #FFA500; /* Adjust this color to match your desired shade of orange */
+  }
+}
