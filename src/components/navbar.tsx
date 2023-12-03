@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between max-w-2xl mx-auto w-full">
         <Link href="/" legacyBehavior>
           <a className="flex items-center">
-            <img src="/logo.png" alt="REFLEYER Logo" className="h-12 mr-2" />
+            <img src="/logo.png" alt="REFLEYER Logo" className="h-24 mr-2" />
             <span className="font-bold text-xl text-white">REFLEYER</span>
           </a>
         </Link>

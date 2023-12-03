@@ -1,19 +1,33 @@
 // components/Contact.tsx
 import React from 'react';
+import Link from 'next/link';
 
 const Contact = () => {
-    return (
-      <section className="flex justify-center items-center p-8">
-        <div className="max-w-sm rounded overflow-hidden shadow-lg p-6 bg-white">
-          <h3 className="text-2xl mb-4 font-bold">Contact Us</h3>
-          <p className="mb-6">Fill in the form on our contact page or use the information below to reach out to us.</p>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Get in Touch
-          </button>
+  return (
+    <section
+      className="relative bg-cover bg-center p-8 flex justify-center items-center min-h-screen"
+      style={{ backgroundImage: `url('/contact.png')`, backgroundSize: 'cover', backgroundPosition: 'center'}}
+    >
+      <div className="bg-white bg-opacity-30 backdrop-blur-sm p-8 rounded-lg shadow-lg max-w-md w-full space-y-4">
+        {/* The bg-opacity-30 controls the opacity */}
+        {/* The backdrop-blur-sm adds a blur effect to the background elements behind the card */}
+        <h2 className="text-3xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-start-gold to-end-orange">
+          Let's get creative!
+        </h2>
+        <p className="text-white text-center mb-6">
+          Have any questions or want to get started with our services? Reach out to us.
+        </p>
+        <div className="text-center">
+          {/* Use Link component properly by passing only one child */}
+          <Link href="/contact" legacyBehavior>
+            <a className="inline-block bg-white text-black font-bold py-2 px-4 rounded transition duration-300 ease-in-out hover:bg-transparent hover:text-white border border-white">
+              Contact Us
+            </a>
+          </Link>
         </div>
-      </section>
-    );
-  };
-  
-  export default Contact;
-  
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
