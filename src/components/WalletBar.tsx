@@ -14,8 +14,7 @@ function WalletConnected() {
 
   return (
     <div>
-      <span>Connected: {shortenedAddress}</span>
-      <button onClick={() => disconnect()}>Disconnect</button>
+      <button onClick={() => disconnect()} className="text-white border border-white bg-transparent hover:bg-white hover:text-black font-bold py-2 px-4 rounded">{shortenedAddress}</button>
     </div>
   );
 }
@@ -25,13 +24,12 @@ function ConnectWallet() {
 
   return (
     <div>
-      <span>Choose a wallet: </span>
       {connectors.map((connector) => {
         return (
           <Button
             key={connector.id}
             onClick={() => connect({ connector })}
-            className="gap-x-2 mr-2"
+            className="text-white border border-white bg-transparent hover:bg-white hover:text-black font-bold py-2 px-4 rounded"
           >
             {connector.id}
           </Button>

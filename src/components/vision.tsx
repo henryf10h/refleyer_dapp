@@ -10,15 +10,18 @@ const Vision = () => {
     >
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center min-h-screen">
         {/* Image container */}
-        <div className="flex justify-center lg:w-1/2 mb-8 lg:mb-0">
+      <div className="flex justify-center lg:w-1/2 mb-8 lg:mb-0">
+          
           <Image 
             src="/vision-1.png" 
             alt="Vision Image" 
             width={500} 
-            height={300} 
-            className="rounded-lg shadow-lg"
+            height={300}
+            // className="glowing-border"
           />
-        </div>
+        
+      </div>
+
         {/* Text container */}
         <div className="flex flex-col items-center lg:items-start lg:w-1/2 text-center lg:text-left">
         <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-start-gold to-end-orange">

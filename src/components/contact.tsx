@@ -21,7 +21,7 @@ const Contact = () => {
           {/* Use Link component properly by passing only one child */}
           <Link href="/contact" legacyBehavior>
             <a className="inline-block bg-white text-black font-bold py-2 px-4 rounded transition duration-300 ease-in-out hover:bg-transparent hover:text-white border border-white">
-              Contact Us
+              Contact 
             </a>
           </Link>
         </div>
