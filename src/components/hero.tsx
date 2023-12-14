@@ -9,14 +9,14 @@ const Hero = () => {
       style={{ backgroundImage: `url('/hero.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="w-full md:max-w-md mx-auto md:ml-56 text-center md:text-left">
-        <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gold to-orange">
+        <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange">
           Deploy reflective tokens in StarkNet
         </h1>
         <p className="text-white mb-6">
           Ready to venture into the world of reflection mechanisms? The
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-orange font-bold"> REFLEYER </span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-bold"> REFLEYER </span>
           is where you come to think and deploy reflective tokens on StarkNet. Dive into innovation - start 
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-orange font-bold"> building.</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-bold"> building.</span>
         </p>
         <Link href="/app" legacyBehavior>
           <a className="inline-block bg-white text-black font-bold py-2 px-4 rounded hover:bg-transparent hover:text-white border border-white">

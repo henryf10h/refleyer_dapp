@@ -1,9 +1,17 @@
+"use client"
 // components/Navbar.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import WalletBar from './WalletBar';
 
 const Navbar = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    // This code runs only on the client side
+    setIsClient(true);
+  }, []);
+
   return (
     <nav className="flex items-center justify-between p-4 bg-transparent absolute top-0 left-0 w-full z-10 navbar-glow sm:justify-center">
       <div className="flex items-center justify-between max-w-2xl mx-auto w-full flex-wrap">
@@ -13,9 +21,12 @@ const Navbar = () => {
             <span className="font-bold text-lg sm:text-xl text-white">REFLEYER</span>
           </a>
         </Link>
-        <Link href="/some-path" legacyBehavior>
-          <WalletBar/>
-        </Link>
+        {/* Conditional rendering based on whether it's client-side */}
+        {isClient && (
+          <Link href="/some-path" legacyBehavior>
+            <WalletBar/>
+          </Link>
+        )}
       </div>
     </nav>
   );

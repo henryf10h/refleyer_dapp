@@ -61,3 +61,38 @@ body {
   animation: glow 2s ease-in-out infinite;
 }
 
+/* globals.css */
+
+@keyframes shiftGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-border {
+  position: relative;
+}
+
+/* Increase the size of the pseudo-element to create a thicker border */
+.animated-gradient-border::before {
+  content: "";
+  position: absolute;
+  top: -4px; /* Increase the negative value for a thicker border */
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(270deg, #007cf0, #00dfd8, #ff0084, #ff5733, #FDC830);
+  background-size: 400% 400%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: shiftGradient 8s linear infinite;
+}
+
+/* Ensure your keyframes are defined globally and are not scoped to a component */
+
