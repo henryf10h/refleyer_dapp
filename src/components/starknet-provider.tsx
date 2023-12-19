@@ -9,6 +9,8 @@ import {
   publicProvider,
   useInjectedConnectors,
 } from "@starknet-react/core";
+import { alchemyProvider } from "@starknet-react/core";
+
 
 export function StarknetProvider({ children }: { children: ReactNode }) {
   const { connectors } = useInjectedConnectors({
@@ -20,10 +22,14 @@ export function StarknetProvider({ children }: { children: ReactNode }) {
     order: "random",
   });
 
+  const apiKey = "qIfwWsQsCue-tbtgIVnXSXxELrpZ_98p"
+
+  const provider = alchemyProvider({ apiKey });
+
   return (
     <StarknetConfig
       chains={[mainnet, goerli]}
-      provider={publicProvider()}
+      provider={provider}
       connectors={connectors}
     >
       {children}

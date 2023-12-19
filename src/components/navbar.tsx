@@ -17,8 +17,8 @@ const Navbar = () => {
       <div className="flex items-center justify-between max-w-2xl mx-auto w-full flex-wrap">
         <Link href="/" legacyBehavior>
           <a className="flex items-center">
-            <img src="/logo.png" alt="REFLEYER Logo" className="h-12 sm:h-24 mr-2" />
-            <span className="font-bold text-lg sm:text-xl text-white">REFLEYER</span>
+            <img src="/logo1.png" alt="REFLEYER Logo" className="h-12 sm:h-24 mr-2" />
+            <span className="font-bold text-lg sm:text-xl text-white">REFLECTER</span>
           </a>
         </Link>
         {/* Conditional rendering based on whether it's client-side */}

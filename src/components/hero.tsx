@@ -10,12 +10,12 @@ const Hero = () => {
     >
       <div className="w-full md:max-w-md mx-auto md:ml-56 text-center md:text-left">
         <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange">
-          Deploy reflective tokens in StarkNet
+          BUILDING REFLECTIVE PRIMITIVES IN STARKNET
         </h1>
         <p className="text-white mb-6">
-          Ready to venture into the world of reflection mechanisms? The
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-bold"> REFLEYER </span>
-          is where you come to think and deploy reflective tokens on StarkNet. Dive into innovation - start 
+          We present a token standard with reflections mechanism. 
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-bold"> REFLECTER.FINANCE </span>
+          is where you 
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-bold"> building.</span>
         </p>
         <Link href="/app" legacyBehavior>

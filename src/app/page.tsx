@@ -8,13 +8,13 @@ import Footer from "@/components/Footer";
 
 const Page = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <Hero />
       <Vision />
       <Contact />
       <Footer />
-    </div>
+    </>
   );
 };
 
