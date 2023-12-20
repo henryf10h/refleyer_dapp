@@ -8,7 +8,7 @@ import { factoryAddress, factoryABI } from "../../abis/factory";
 const App = () => {
   const { address } = useAccount();
   const isAddressConnected = Boolean(address);
-  const buttonText = isAddressConnected ? "Deploy!" : "Connect: Braavos/Argent";
+  const buttonText = isAddressConnected ? "Deploy" : "Connect: argentX || braavos";
 
   // State to store input values
   const [formData, setFormData] = useState({
@@ -46,12 +46,18 @@ const App = () => {
 
   const { isLoading, isError, error, data: tx } = useWaitForTransaction({ hash: data?.transaction_hash, watch: true });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isAddressConnected) {
-      writeAsync();
+      try {
+        await writeAsync(); // Attempt to write the transaction
+        // Additional logic if the transaction is successfully initiated
+      } catch (error) {
+        // Handle the error if the user rejects the transaction
+        console.error("Transaction rejected by the user:", error);
+        // Optionally, set state to display an error message to the user
+      }
     }
-    // Otherwise, do nothing (or handle wallet connection logic)
   };
 
   return (

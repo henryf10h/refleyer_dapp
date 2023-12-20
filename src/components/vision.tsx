@@ -36,7 +36,7 @@ const Vision = () => {
             rel="noopener noreferrer"
             className="inline-block bg-white text-black font-bold py-2 px-4 rounded hover:bg-transparent hover:text-white border border-white"
           >
-            GitHub
+            GITHUB
           </a>
         </div>
       </div>

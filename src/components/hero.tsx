@@ -10,7 +10,7 @@ const Hero = () => {
     >
       <div className="w-full md:max-w-md mx-auto md:ml-56 text-center md:text-left">
         <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange">
-          BUILDING REFLECTIVE PRIMITIVES IN STARKNET
+          BUILDING REFLECTIVE PRIMITIVES ON STARKNET
         </h1>
         <p className="text-white mb-6">
           We present a token standard with reflections mechanism. 
@@ -20,7 +20,7 @@ const Hero = () => {
         </p>
         <Link href="/app" legacyBehavior>
           <a className="inline-block bg-white text-black font-bold py-2 px-4 rounded hover:bg-transparent hover:text-white border border-white">
-            Start!
+            START
           </a>
         </Link>
       </div>

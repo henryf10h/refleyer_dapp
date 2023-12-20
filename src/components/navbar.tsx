@@ -1,4 +1,4 @@
-"use client"
+"use client";
 // components/Navbar.tsx
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -21,12 +21,7 @@ const Navbar = () => {
             <span className="font-bold text-lg sm:text-xl text-white">REFLECTER</span>
           </a>
         </Link>
-        {/* Conditional rendering based on whether it's client-side */}
-        {isClient && (
-          <Link href="/some-path" legacyBehavior>
-            <WalletBar/>
-          </Link>
-        )}
+        {isClient && <WalletBar />}
       </div>
     </nav>
   );

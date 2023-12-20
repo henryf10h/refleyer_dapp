@@ -22,7 +22,7 @@ export function StarknetProvider({ children }: { children: ReactNode }) {
     order: "random",
   });
 
-  const apiKey = "qIfwWsQsCue-tbtgIVnXSXxELrpZ_98p"
+  const apiKey = process.env.NEXT_PUBLIC_ALCHEMY_API_KEY as string;
 
   const provider = alchemyProvider({ apiKey });
 
