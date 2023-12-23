@@ -1,18 +1,17 @@
 "use client";
 import { ReactNode } from "react";
-
-import { goerli, mainnet } from "@starknet-react/chains";
+import { useState } from "react";
+import { sepolia,goerli, mainnet } from "@starknet-react/chains";
 import {
   StarknetConfig,
+  publicProvider,
   argent,
   braavos,
-  publicProvider,
   useInjectedConnectors,
 } from "@starknet-react/core";
 import { alchemyProvider } from "@starknet-react/core";
 
-
-export function StarknetProvider({ children }: { children: ReactNode }) {
+export function StarknetProvider({ children }: { children: React.ReactNode }) {
   const { connectors } = useInjectedConnectors({
     // Show these connectors if the user has no connector installed.
     recommended: [argent(), braavos()],
@@ -28,7 +27,7 @@ export function StarknetProvider({ children }: { children: ReactNode }) {
 
   return (
     <StarknetConfig
-      chains={[mainnet, goerli]}
+      chains={[mainnet, sepolia, goerli]}
       provider={provider}
       connectors={connectors}
     >
