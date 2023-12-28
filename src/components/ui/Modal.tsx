@@ -9,7 +9,7 @@ const Modal = ({ isOpen, onClose, children }) => {
       onClick={onClose}
     >
       <div
-        className={`bg-black rounded-lg p-6 m-4 transition-transform ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
+        className={`bg-black border-white rounded-lg p-6 m-4 transition-transform ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
         onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
       >
         <button
