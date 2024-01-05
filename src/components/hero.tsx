@@ -9,10 +9,10 @@ const Hero = () => {
       style={{ backgroundImage: `url('/hero.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       <div className="w-full md:max-w-md mx-auto md:ml-56 text-center md:text-left">
-        <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange">
+        <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-pixeled leading-normal">
           BUILDING REFLECTIVE PRIMITIVES ON STARKNET
         </h1>
-        <p className="text-white mb-6">
+        <p className="text-white mb-6 mt-6">
           We present a token standard with reflections mechanism. 
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-bold"> REFLECTER.FINANCE </span>
           is where you 

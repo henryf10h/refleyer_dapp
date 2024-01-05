@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'pixeled': ['Pixeled', 'sans-serif'],
+      },
       colors: {
         gold: '#ffd700', // Define your custom gold color
         torange: '#ff7f50', // Define your custom orange color

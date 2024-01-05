@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import Navbar from "@/components/Navbar";
-import { useContractWrite, useAccount, useContract, useWaitForTransaction, } from "@starknet-react/core";
+import { useContractWrite, useAccount, useContract, useWaitForTransaction, useNetwork} from "@starknet-react/core";
 import { factoryAddress, factoryABI } from "../../abis/factory";
 import Modal from '../../components/ui/Modal'; // Import the Modal component
 
@@ -12,6 +12,7 @@ const App = () => {
   const buttonText = isAddressConnected ? "DEPLOY" : "CONNECT: argentX or braavos";
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [copySuccess, setCopySuccess] = useState('');
+  const { chain } = useNetwork()
 
   const handleCopy = async (text, label) => {
     try {
@@ -73,122 +74,145 @@ const App = () => {
     }
   };
 
+  const getChainNameForUrl = (fullChainName) => {
+    const parts = fullChainName.split(' ');
+    // Check if the second part is "Goerli" and return "testnet" instead
+    if (parts.length > 1) {
+      return parts[1].toLowerCase() === 'goerli' ? 'testnet' : parts[1].toLowerCase();
+    }
+    return '';
+  };
+
+  const networkPart = getChainNameForUrl(chain.name);
+
   useEffect(() => {
     if (receipt && !isLoading) {
       console.log('Transaction receipt:', receipt);
-      console.log(receipt?.events[0].from_address)
+      console.log(receipt?.events[0].from_address);
+      console.log(chain.name);
       // Handle actions after transaction is confirmed, for example:
       // Display the transaction hash and the deployed contract address from the receipt
     }
   }, [receipt, isLoading]);
 
   return (
-    <>
-  <Navbar />
-  <div className="flex justify-center items-center min-h-screen bg-black relative overflow-hidden">
-    <img 
+
+<div className='flex flex-col justify-between w-screen min-h-screen bg-black items-center'>
+  <Navbar/>
+  <img 
       src="/ellipse0.png" 
       alt="Ellipse Background"
-      className="absolute top-0 left-0 w-full h-full object-cover animate-pulse z-0"
+      className="fixed inset-0 w-screen h-screen object-cover animate-pulse z-0"
     />
-  <div className="w-full max-w-2xl h-[700px] p-8 m-4 rounded-lg bg-black z-10 relative overflow-auto lg:absolute lg:top-[165px] shadow-2xl">
-  <h1 className="text-center text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange">CREATE A NEW TOKEN</h1>
-  <form onSubmit={handleSubmit} className="space-y-6">
-    {[
-      { id: 'name', desc: 'Token Name (e.g., "MyToken")' },
-      { id: 'symbol', desc: 'Token Symbol (e.g., "MTK")' },
-      { id: 'supply', desc: 'Total Supply (e.g., "1000000")' },
-      { id: 'owner', desc: 'Owner Address (e.g., "0x123...abc")' }
-    ].map((field) => (
-      <div key={field.id} className="flex flex-col">
-        <label htmlFor={field.id} className="mb-2 font-semibold text-white">
-          {field.id.charAt(0).toUpperCase() + field.id.slice(1)} 
-        </label>
-        <input
-          type={field.id === 'supply' ? 'number' : 'text'}
-          id={field.id}
-          name={field.id}
-          value={formData[field.id]}
-          onChange={handleChange}
-          className="px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-orange-500"
-        />
-        <p id={`${field.id}-help`} className="mt-1 text-sm text-gray-500">
-          {field.desc}
-        </p>
-      </div>
-    ))}
-    <button 
-      type="submit" 
-      className={`w-full py-3 mt-6 text-white font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50
-        bg-gradient-to-r from-gold to-torange ${isAddressConnected ? '' : 'opacity-75'}`}
-      disabled={!isAddressConnected}
-    >
-      {buttonText}
-    </button>
-  </form>
- </div>
-    <div className="bg-transparent p-4 text-center text-xs text-white absolute z-10 bottom-0">
-      © 2023 REFLECTER.FINANCE. All right reserved.
-    </div>
- </div>
+       <div className=" border border-white w-full max-w-2xl rounded-lg bg-black p-8 m-8 z-10 relative content-fit">
 
-        {/* Modal */}
-        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          {isLoading && (
+         <h1 className="text-center text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-pixeled leading-normal">CREATE A NEW TOKEN</h1>
+
+         <form onSubmit={handleSubmit} className="space-y-7">
+          {[
+           { id: 'name', desc: 'Token Name (e.g., "MyToken")' },
+           { id: 'symbol', desc: 'Token Symbol (e.g., "MTK")' },
+          { id: 'supply', desc: 'Total Supply (e.g., "1000000")' },
+           { id: 'owner', desc: 'Owner Address (e.g., "0x123...abc")' }
+         ].map((field) => (
+           <div key={field.id} className="flex flex-col ">
+             <label htmlFor={field.id} className="mb-2 font-semibold text-white">
+               {field.id.charAt(0).toUpperCase() + field.id.slice(1)} 
+             </label>
+             <input
+               type={field.id === 'supply' ? 'number' : 'text'}
+               id={field.id}
+               name={field.id}
+               value={formData[field.id]}
+               onChange={handleChange}
+               className="px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-orange-500"
+               placeholder={field.desc}
+               required
+              />
+           </div>
+         ))}
+          <button 
+           type="submit" 
+           className={`w-full py-3 mt-6 text-white font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50
+             bg-gradient-to-r from-gold to-torange ${isAddressConnected ? '' : 'opacity-50'}`}
+           disabled={!isAddressConnected}
+          >
+            {buttonText}
+          </button>
+         </form>
+      </div>
+
+      <footer className="p-4 text-center text-xs text-white bg-transparent z-10">
+          © 2023 REFLECTER.FINANCE. All rights reserved.
+      </footer>
+
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+            {isLoading && (
             <div className="flex flex-col items-center justify-center p-4">
               <img
                 src="/load.png"
                 alt="Loading"
-                className="h-40 w-40 animate-spin"
+                className="h-20 w-20 sm:h-40 sm:w-40 animate-spin"
               />
-              <p className='text-white mt-2'>Loading...</p>
+              <h1 className="text-center text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-pixeled leading-normal">Loading...</h1>
             </div>
           )}
           {receipt && (
-            <div className="p-4 text-white">
-              <div className="flex flex-col md:flex-row justify-between items-center mb-4">
-                <span>Transaction Hash:</span>
-                <span className="font-mono bg-gray-800 p-1 rounded">{receipt.transaction_hash}</span>
+            <>
+              <div className='flex flex-col justify-center items-center'>
+                <h1 className="text-center font-bold mb-4 mt-4 bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange leading-normal sm:text-lg font-pixeled">CONGRATULATIONS!</h1>
+                <p className='text-white text-center'>You just deployed a new token successfully 🥳</p>
+              </div>
+              <div className="flex flex-col md:flex-row justify-between items-center mb-4 p-4">
+                <span className='text-white'>Transaction Hash:</span>
+                <span className="font-mono bg-gray-800 p-1 rounded max-w-full overflow-x-auto text-white text-xs sm:text-sm">{receipt.transaction_hash}</span>
                 <button
-                  onClick={() => navigator.clipboard.writeText(receipt.transaction_hash)}
+                  onClick={() => handleCopy(receipt.transaction_hash, "Transaction Hash")}
                   className="ml-2"
                 >
                   <img src="/copy.png" alt="Copy" className="inline h-6 w-6 bg-gray-800" />
                 </button>
                 <a
-                  href={`https://starkscan.co/tx/${receipt.transaction_hash}`}
+                  href={`https://${networkPart}.starkscan.co/tx/${receipt.transaction_hash}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ml-2"
                 >
                   <img src="/link.png" alt="Link" className="inline h-6 w-6" />
                 </a>
-                {copySuccess && <div className="text-sm text-green-500">{copySuccess}</div>}
               </div>
               <div className="flex flex-col md:flex-row justify-between items-center">
-                <span>Contract Address:</span>
-                <span className="font-mono bg-gray-800 p-1 rounded">{receipt.events[0].from_address}</span>
+                <span className='text-white'>Contract Address:</span>
+                <span className="font-mono bg-gray-800 p-1 rounded max-w-full overflow-x-auto text-white text-xs sm:text-sm">{receipt.events[0].from_address}</span>
                 <button
-                  onClick={() => navigator.clipboard.writeText(receipt.events[0].from_address)}
+                  onClick={() => handleCopy(receipt.events[0].from_address, "Contract Address")}
                   className="ml-2"
                 >
                   <img src="/copy.png" alt="Copy" className="inline h-6 w-6 bg-gray-800" />
                 </button>
                 <a
-                  href={`https://starkscan.co/contract/${receipt.events[0].from_address}`}
+                  href={`https://${networkPart}.starkscan.co/contract/${receipt.events[0].from_address}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ml-2"
                 >
                   <img src="/link.png" alt="Link" className="inline h-6 w-6" />
                 </a>
-                {copySuccess && <div className="text-sm text-green-500">{copySuccess}</div>}
               </div>
-            </div>
+              <div className={`text-sm text-green-500 mt-2 ${copySuccess ? '' : 'invisible'}`}>
+                {copySuccess || 'Placeholder'}
+              </div>
+              </>
           )}
-        </Modal>
+          
+    </Modal>
 
-</>
+</div>
+
+
+
+
+
 
   );
 

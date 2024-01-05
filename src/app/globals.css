@@ -24,12 +24,15 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    font-family: 'Pixeled', sans-serif;
 }
 
-@layer components {
-  .navbar-glow {
-    box-shadow: 0 0 10px #007bff, 0 0 20px #007bff, 0 0 40px #007bff; /* Custom neon glow */
-  }
+@font-face {
+  font-family: 'Pixeled';
+  src: url('/Pixeled.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* This is to ensure text remains visible during webfont load */
 }
 
 @layer components {

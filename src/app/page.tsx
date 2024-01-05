@@ -8,13 +8,16 @@ import Footer from "@/components/Footer";
 
 const Page = () => {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <Vision />
-      <Contact />
-      <Footer />
-    </>
+<div className='flex flex-col min-h-screen bg-black'>
+  <Navbar/>
+  {/* `Hero`, `Vision`, `Contact`, and `Footer` will follow and be part of the normal document flow */}
+  <Hero />
+  <Vision />
+  <Contact />
+  <Footer />
+  {/* The background image can be part of the `Hero` component or set as a background to this main container */}
+</div>
+
   );
 };
 

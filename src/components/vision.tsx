@@ -24,7 +24,7 @@ const Vision = () => {
 
         {/* Text container */}
         <div className="flex flex-col items-center lg:items-start lg:w-1/2 text-center lg:text-left">
-        <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-start-gold to-end-torange">
+        <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-start-gold to-end-torange font-pixeled leading-normal">
           What are reflective tokens?
         </h2>
           <p className="text-white mb-6">

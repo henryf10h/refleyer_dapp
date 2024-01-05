@@ -11,7 +11,7 @@ const Contact = () => {
       <div className="bg-white bg-opacity-30 backdrop-blur-sm p-8 rounded-lg shadow-lg max-w-md w-full space-y-4">
         {/* The bg-opacity-30 controls the opacity */}
         {/* The backdrop-blur-sm adds a blur effect to the background elements behind the card */}
-        <h2 className="text-3xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-start-gold to-end-torange">
+        <h2 className="text-3xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-start-gold to-end-torange font-pixeled leading-normal">
           Let's get creative!
         </h2>
         <p className="text-white text-center mb-6">
