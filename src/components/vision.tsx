@@ -23,12 +23,12 @@ const Vision = () => {
       </div>
 
         {/* Text container */}
-        <div className="flex flex-col items-center lg:items-start lg:w-1/2 text-center lg:text-left">
-        <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-start-gold to-end-torange font-pixeled leading-normal">
+        <div className="flex flex-col items-center lg:items-start lg:w-1/2 text-center lg:text-left p-4">
+        <h2 className="sm:text-3xl text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-start-gold to-end-torange font-pixeled leading-normal sm:leading-normal">
           What are reflective tokens?
         </h2>
           <p className="text-white mb-6">
-            We aim to revolutionize the way reflective tokens are used, providing innovative solutions that enable new possibilities in StarkNet.
+          Reflective tokens, akin to the well-known deflationary tokens, apply a % fee to each transaction. This fee is instantly split among all holders, ensuring immediate benefits without staking or waiting. The smart contract automatically adjusts holder's balances, making the process seamless and efficient.
           </p>
           <a
             href="https://github.com/henryf10h/reflect_cairo"

@@ -13,11 +13,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="flex items-center justify-between p-4 bg-transparent top-0 left-0 w-full z-10 shadow-md shadow-white sm:justify-center">
-      <div className="flex items-center justify-between max-w-2xl mx-auto w-full flex-wrap">
+    <nav className="flex flex-col sm:flex-row items-center justify-center sm:justify-between p-4 bg-transparent top-0 left-0 w-full z-10 shadow-lg shadow-white">
+      <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between max-w-2xl mx-auto w-full">
         <Link href="/" legacyBehavior>
-          <a className="flex items-center">
-            <img src="/logo1.png" alt="REFLEYER Logo" className="h-12 sm:h-24 mr-2" />
+          <a className="flex items-center mb-4 sm:mb-0">
+            <img src="/logo1.png" alt="REFLECTER Logo" className="h-12 sm:h-24 mr-2" />
             <span className="font-bold text-lg sm:text-base text-white font-pixeled">REFLECTER</span> 
           </a>
         </Link>
