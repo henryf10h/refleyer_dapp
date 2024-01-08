@@ -1,4 +1,5 @@
-export const factoryAddress = "0x05566c3d9c3b94d383888c04ba155b3d2891385ad7ffc91d71b9cd3890b7e94d"
+export const GoerliFactoryAddress = "0x05566c3d9c3b94d383888c04ba155b3d2891385ad7ffc91d71b9cd3890b7e94d"
+export const SepoliaFactoryAddress = "0x03201fcbe37682e6e44ea0fc581e35ccfda63c15125685586e437a6f6784bcfb"
 
 export const factoryABI = [
     {

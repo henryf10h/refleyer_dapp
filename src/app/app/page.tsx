@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import Navbar from "@/components/Navbar";
 import { useContractWrite, useAccount, useContract, useWaitForTransaction, useNetwork} from "@starknet-react/core";
-import { factoryAddress, factoryABI } from "../../abis/factory";
+import { GoerliFactoryAddress, SepoliaFactoryAddress, factoryABI } from "../../abis/factory";
 import Modal from '../../components/ui/Modal'; // Import the Modal component
 
 const App = () => {
@@ -37,9 +37,19 @@ const App = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const factoryAddress = useMemo(() => {
+    if (chain.name === 'Starknet') {
+      return GoerliFactoryAddress;
+    } else if (chain.name === 'Starknet Sepolia Testnet') {
+      return SepoliaFactoryAddress;
+    }
+    // Default return or error handling
+    return ""; // or throw new Error('Unsupported network');
+  }, [chain.name]);
+
   const { contract } = useContract({
     abi: factoryABI,
-    address: factoryAddress,
+    address: factoryAddress
   });
 
   const calls = useMemo(() => {
@@ -93,7 +103,7 @@ const App = () => {
       // Handle actions after transaction is confirmed, for example:
       // Display the transaction hash and the deployed contract address from the receipt
     }
-  }, [receipt, isLoading]);
+  }, [receipt, isLoading, chain.name]);
 
   return (
 
