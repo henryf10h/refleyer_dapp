@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import Navbar from "@/components/Navbar";
 import { useContractWrite, useAccount, useContract, useWaitForTransaction, useNetwork} from "@starknet-react/core";
-import { GoerliFactoryAddress, SepoliaFactoryAddress, factoryABI } from "../../abis/factory";
+import { MainnetrFactoryAddress, SepoliaFactoryAddress, factoryABI } from "../../abis/factory";
 import Modal from '../../components/ui/Modal'; // Import the Modal component
 
 const App = () => {
@@ -39,7 +39,7 @@ const App = () => {
 
   const factoryAddress = useMemo(() => {
     if (chain.name === 'Starknet') {
-      return GoerliFactoryAddress;
+      return MainnetrFactoryAddress;
     } else if (chain.name === 'Starknet Sepolia Testnet') {
       return SepoliaFactoryAddress;
     }
@@ -86,12 +86,22 @@ const App = () => {
 
   const getChainNameForUrl = (fullChainName) => {
     const parts = fullChainName.split(' ');
+  
+    // If the chain name indicates the mainnet
+    if (parts[1] === '0') {
+      return ''; // Return an empty string for mainnet
+    }
+    
     // Check if the second part is "Goerli" and return "testnet" instead
     if (parts.length > 1) {
-      return parts[1].toLowerCase() === 'goerli' ? 'testnet' : parts[1].toLowerCase();
+      const networkName = parts[1].toLowerCase() === 'goerli' ? 'testnet' : parts[1].toLowerCase();
+      return `${networkName}.`; // Return the network name with a dot prefix
     }
+  
+    // If no specific condition is met
     return '';
   };
+  
 
   const networkPart = getChainNameForUrl(chain.name);
 
@@ -183,7 +193,7 @@ const App = () => {
                   <img src="/copy.png" alt="Copy" className="inline h-6 w-6 bg-gray-800" />
                 </button>
                 <a
-                  href={`https://${networkPart}.starkscan.co/tx/${receipt.transaction_hash}`}
+                  href={`https://${networkPart}starkscan.co/tx/${receipt.transaction_hash}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ml-2"
@@ -201,7 +211,7 @@ const App = () => {
                   <img src="/copy.png" alt="Copy" className="inline h-6 w-6 bg-gray-800" />
                 </button>
                 <a
-                  href={`https://${networkPart}.starkscan.co/contract/${receipt.events[0].from_address}`}
+                  href={`https://${networkPart}starkscan.co/contract/${receipt.events[0].from_address}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ml-2"
