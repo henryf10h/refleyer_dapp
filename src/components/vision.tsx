@@ -1,6 +1,7 @@
 // components/Vision.tsx
 import React from 'react';
 import Image from 'next/image';
+import ScrollAnimation from './ui/ScrollAnimation';
 
 const Vision = () => {
   return (
@@ -8,6 +9,7 @@ const Vision = () => {
       className="relative bg-cover bg-center p-8"
       style={{ backgroundImage: `url('/vision.png')`, backgroundSize: 'cover', backgroundPosition: 'center'  }}
     >
+    <ScrollAnimation>
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center min-h-screen">
         {/* Image container */}
       <div className="flex justify-center lg:w-1/2 mb-8 lg:mb-0">
@@ -40,6 +42,7 @@ const Vision = () => {
           </a>
         </div>
       </div>
+      </ScrollAnimation>
     </section>
   );
 };

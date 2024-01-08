@@ -1,6 +1,7 @@
 // components/Hero.tsx
 import React from 'react';
 import Link from 'next/link';
+import ScrollAnimation from './ui/ScrollAnimation';
 
 const Hero = () => {
   return (
@@ -8,6 +9,7 @@ const Hero = () => {
       className="flex justify-center md:justify-start items-center min-h-screen p-8"
       style={{ backgroundImage: `url('/hero.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
+      <ScrollAnimation>
       <div className="w-full md:max-w-md mx-auto md:ml-56 text-center md:text-left p-4">
         <h1 className="sm:text-4xl text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange leading-normal sm:leading-normal font-pixeled">
           BUILDING PRIMITIVES ON STARKNET
@@ -27,6 +29,7 @@ const Hero = () => {
           </a>
         </Link>
       </div>
+      </ScrollAnimation>
     </section>
   );
 };

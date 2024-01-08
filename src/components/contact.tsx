@@ -1,5 +1,6 @@
 // components/Contact.tsx
 import React from 'react';
+import ScrollAnimation from './ui/ScrollAnimation';
 
 const Contact = () => {
   return (
@@ -7,6 +8,7 @@ const Contact = () => {
       className="relative bg-cover bg-center p-8 flex justify-center items-center min-h-screen"
       style={{ backgroundImage: `url('/contact.png')`, backgroundSize: 'cover', backgroundPosition: 'center'}}
     >
+      <ScrollAnimation>
       <div className="bg-white bg-opacity-30 backdrop-blur-sm p-8 rounded-lg shadow-lg max-w-md w-full space-y-4">
         <h2 className="sm:text-3xl text-xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-start-gold to-end-torange font-pixeled leading-normal sm:leading-normal">
           Let's get creative!
@@ -25,6 +27,7 @@ const Contact = () => {
           </a>
         </div>
       </div>
+      </ScrollAnimation>
     </section>
   );
 };
