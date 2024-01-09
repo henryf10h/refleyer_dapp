@@ -11,7 +11,7 @@ const Contact = () => {
       <ScrollAnimation>
       <div className="bg-white bg-opacity-30 backdrop-blur-sm p-8 rounded-lg shadow-lg max-w-md w-full space-y-4">
         <h2 className="sm:text-3xl text-xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-start-gold to-end-torange font-pixeled leading-normal sm:leading-normal">
-          Let's get creative!
+          Let&apos;s get creative!
         </h2>
         <p className="text-white text-center mb-6">
           Interested in exploring or have ideas to share? Contact us to delve into the possibilities and innovations within StarkNet's token landscape.
