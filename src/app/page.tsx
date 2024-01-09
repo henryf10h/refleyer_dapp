@@ -1,10 +1,10 @@
 // app/page.tsx
 import React from 'react';
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Vision from "@/components/Vision";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Navbar from "../components/navbar";
+import Hero from "../components/hero";
+import Vision from "../components/vision";
+import Contact from "../components/contact";
+import Footer from "../components/footer";
 
 const Page = () => {
   return (
