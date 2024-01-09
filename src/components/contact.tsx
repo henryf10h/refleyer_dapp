@@ -14,7 +14,7 @@ const Contact = () => {
           Let&apos;s get creative!
         </h2>
         <p className="text-white text-center mb-6">
-          Interested in exploring or have ideas to share? Contact us to delve into the possibilities and innovations within StarkNet's token landscape.
+          Interested in exploring or have ideas to share? Contact us to delve into the possibilities and innovations within StarkNet&apos;s token landscape.
         </p>
         <div className="text-center">
           <a
