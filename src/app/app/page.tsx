@@ -14,7 +14,7 @@ const App = () => {
   const [copySuccess, setCopySuccess] = useState('');
   const { chain } = useNetwork()
 
-  const handleCopy = async (text, label) => {
+  const handleCopy = async (text: string, label: string) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopySuccess(`${label} copied!`);
@@ -32,7 +32,7 @@ const App = () => {
     owner: ''
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -70,7 +70,7 @@ const App = () => {
 
   const { isLoading, isError, error, data: receipt } = useWaitForTransaction({ hash: data?.transaction_hash, watch: true });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     if (isAddressConnected) {
       try {
@@ -84,7 +84,7 @@ const App = () => {
     }
   };
 
-  const getChainNameForUrl = (fullChainName) => {
+  const getChainNameForUrl = (fullChainName:string) => {
     const parts = fullChainName.split(' ');
   
     // If the chain name indicates the mainnet
