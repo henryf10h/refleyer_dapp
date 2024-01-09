@@ -68,9 +68,24 @@ const App = () => {
 
   const { writeAsync, data, isPending } = useContractWrite({ calls });
 
+
   const { isLoading, isError, error, data: receipt } = useWaitForTransaction({ hash: data?.transaction_hash, watch: true });
 
-  const handleSubmit = async (e:any) => {
+    // Define the types as you expect them to be
+  interface Event {
+    from_address: string;
+    // Add other properties from the event object as needed
+  }
+
+  interface MyTransactionReceipt {
+    transaction_hash: string;
+    events: Event[];
+    // ... include other properties from the transaction receipt as needed
+  }
+
+  const receiptTx = receipt as unknown as MyTransactionReceipt;
+
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (isAddressConnected) {
       try {
@@ -108,7 +123,7 @@ const App = () => {
   useEffect(() => {
     if (receipt && !isLoading) {
       console.log('Transaction receipt:', receipt);
-      console.log(receipt?.events[0].from_address);
+      console.log(receiptTx.events[0].from_address);
       console.log(chain.name);
       // Handle actions after transaction is confirmed, for example:
       // Display the transaction hash and the deployed contract address from the receipt
@@ -143,7 +158,7 @@ const App = () => {
                type={field.id === 'supply' ? 'number' : 'text'}
                id={field.id}
                name={field.id}
-               value={formData[field.id]}
+               value={formData[field.id as keyof typeof formData]}
                onChange={handleChange}
                className="px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-orange-500"
                placeholder={field.desc}
@@ -185,15 +200,15 @@ const App = () => {
               </div>
               <div className="flex flex-col md:flex-row justify-between items-center mb-4 p-4">
                 <span className='text-white'>Transaction Hash:</span>
-                <span className="font-mono bg-gray-800 p-1 rounded max-w-full overflow-x-auto text-white text-xs sm:text-sm">{receipt.transaction_hash}</span>
+                <span className="font-mono bg-gray-800 p-1 rounded max-w-full overflow-x-auto text-white text-xs sm:text-sm">{receiptTx.transaction_hash}</span>
                 <button
-                  onClick={() => handleCopy(receipt.transaction_hash, "Transaction Hash")}
+                  onClick={() => handleCopy(receiptTx.transaction_hash, "Transaction Hash")}
                   className="ml-2"
                 >
                   <img src="/copy.png" alt="Copy" className="inline h-6 w-6 bg-gray-800" />
                 </button>
                 <a
-                  href={`https://${networkPart}starkscan.co/tx/${receipt.transaction_hash}`}
+                  href={`https://${networkPart}starkscan.co/tx/${receiptTx.transaction_hash}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ml-2"
@@ -203,15 +218,15 @@ const App = () => {
               </div>
               <div className="flex flex-col md:flex-row justify-between items-center">
                 <span className='text-white'>Contract Address:</span>
-                <span className="font-mono bg-gray-800 p-1 rounded max-w-full overflow-x-auto text-white text-xs sm:text-sm">{receipt.events[0].from_address}</span>
+                <span className="font-mono bg-gray-800 p-1 rounded max-w-full overflow-x-auto text-white text-xs sm:text-sm">{receiptTx.events[0].from_address}</span>
                 <button
-                  onClick={() => handleCopy(receipt.events[0].from_address, "Contract Address")}
+                  onClick={() => handleCopy(receiptTx.events[0].from_address, "Contract Address")}
                   className="ml-2"
                 >
                   <img src="/copy.png" alt="Copy" className="inline h-6 w-6 bg-gray-800" />
                 </button>
                 <a
-                  href={`https://${networkPart}starkscan.co/contract/${receipt.events[0].from_address}`}
+                  href={`https://${networkPart}starkscan.co/contract/${receiptTx.events[0].from_address}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ml-2"

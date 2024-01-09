@@ -30,7 +30,7 @@ const Vision = () => {
           What are reflective tokens?
         </h2>
           <p className="text-white mb-6">
-          Reflective tokens, akin to the well-known deflationary tokens, apply a % fee to each transaction. This fee is instantly split among all holders, ensuring immediate benefits without staking or waiting. The smart contract automatically adjusts the balances of owners, making the process seamless and efficient.
+          Reflective tokens, akin to the well-known deflationary tokens, apply a % fee to each transaction. This fee is instantly split among all owners, ensuring immediate benefits without staking or waiting. The smart contract automatically adjusts the balances of owners, making the process seamless and efficient.
           </p>
           <a
             href="https://github.com/henryf10h/reflect_cairo"
