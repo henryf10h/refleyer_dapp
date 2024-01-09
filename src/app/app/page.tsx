@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from 'react';
-import Navbar from "@/components/Navbar";
+import Navbar from "../../components/navbar";
 import { useContractWrite, useAccount, useContract, useWaitForTransaction, useNetwork} from "@starknet-react/core";
 import { MainnetrFactoryAddress, SepoliaFactoryAddress, factoryABI } from "../../abis/factory";
 import Modal from '../../components/ui/Modal'; // Import the Modal component
