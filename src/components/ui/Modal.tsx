@@ -1,7 +1,12 @@
-import React from "react";
+import React, { ReactNode, MouseEvent } from "react";
 
+interface ModalProps {
+  isOpen: boolean;
+  onClose: (event: MouseEvent<HTMLButtonElement>) => void;
+  children: ReactNode;
+}
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   return (
     <div className={`fixed inset-0 z-40 flex items-center justify-center px-4 py-2 sm:px-6 ${isOpen ? 'visible' : 'invisible'} bg-black bg-opacity-50 transition-opacity`} 
     style={{ display: isOpen ? 'flex' : 'none' }}
