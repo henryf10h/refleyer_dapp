@@ -26,7 +26,7 @@ const Footer = () => {
         {/* Footer bottom content */}
         <div className="flex flex-col md:flex-row justify-between items-center w-full">
           <p className="text-xs mb-2 md:mb-0">
-            © 2023 REFLECTER.FINANCE. All right reserved.
+            © 2024 REFLECTER.FINANCE. All right reserved.
           </p>
           <div className="flex space-x-4">
             <Link href="/privacy-policy" legacyBehavior>

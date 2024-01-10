@@ -15,11 +15,11 @@ const Hero = () => {
           BUILDING PRIMITIVES ON STARKNET
         </h1>
         <p className="text-white mb-6 mt-6">
-          Discover our New  
+          Introducing a new  
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-bold"> Token Standard </span>
-          with Reflection Mechanism.  
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-bold"> REFLECTER.FINANCE </span>
-           easens creating tokens with our no-code deployer dApp.
+          with an in-built Reflection Mechanism. With 
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-bold"> REFLECTER.FINANCE</span>
+          , experience the ease of token creation through our no-code deployer dApp.
         </p>
         <Link href="/app" legacyBehavior>
           <a className="relative inline-block bg-white text-black font-bold py-2 px-4 rounded hover:bg-transparent hover:text-white border border-white overflow-visible">

@@ -178,7 +178,7 @@ const App = () => {
       </div>
 
       <footer className="p-4 text-center text-xs text-white bg-transparent z-10">
-          © 2023 REFLECTER.FINANCE. All rights reserved.
+       Use at your own risk; contracts are unaudited. Current version supports a fixed 1% fee on transfers. © 2024 REFLECTER.FINANCE. All rights reserved.
       </footer>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
