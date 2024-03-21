@@ -39,7 +39,7 @@ const App = () => {
 
   const factoryAddress = useMemo(() => {
     if (chain.name === 'Starknet') {
-      return MainnetrFactoryAddress;
+      return "";
     } else if (chain.name === 'Starknet Sepolia Testnet') {
       return SepoliaFactoryAddress;
     }
@@ -160,7 +160,7 @@ const App = () => {
                name={field.id}
                value={formData[field.id as keyof typeof formData]}
                onChange={handleChange}
-               className="px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-orange-500"
+               className="px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-orange-500 text-black"
                placeholder={field.desc}
                required
               />
@@ -177,7 +177,7 @@ const App = () => {
          </form>
       </div>
 
-      <footer className="p-4 text-center text-xs text-white bg-transparent z-10">
+      <footer className="p-4 text-center text-base text-white bg-transparent z-10">
        Use at your own risk; contracts are unaudited. Current version supports a fixed 1% fee on transfers. © 2024 REFLECTER.FINANCE. All rights reserved.
       </footer>
 

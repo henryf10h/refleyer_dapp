@@ -29,7 +29,7 @@ export function StarknetProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <StarknetConfig
-      chains={[mainnet, sepolia, goerli]}
+      chains={[sepolia]}
       provider={provider}
       connectors={connectors}
     >

@@ -19,7 +19,7 @@ const Hero = () => {
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-bold"> Token Standard </span>
           with an in-built Reflection Mechanism. With 
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-gold to-torange font-bold"> REFLECTER.FINANCE</span>
-          , experience the ease of token creation through our no-code deployer dApp.
+          , experience the ease of token creation through our no-code dApp.
         </p>
         <Link href="/app" legacyBehavior>
           <a className="relative inline-block bg-white text-black font-bold py-2 px-4 rounded hover:bg-transparent hover:text-white border border-white overflow-visible">
